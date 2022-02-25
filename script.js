@@ -31,6 +31,16 @@ for (id of ids) {
   for (const validacao of validacoes) {
     console.log(`${id} ${validacao} ${regras[id][validacao]}`);
   }
+    }
+  }
+}
+
+function getRegras() {
+  if (itens.regras) {
+    return itens.regras;
+  }
+  console.log("Itens e regras de validação não definidos.");
+  return null;
 }
 
 function getIdsAValidar(regras) {
