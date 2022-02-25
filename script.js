@@ -48,7 +48,7 @@ function getIdsAValidar(regras) {
 }
 
 function getValidacoesPorId(id) {
-  return Object.keys(regras[id]);
+  return Object.keys(itens.regras[id]);
 }
 
 function getParametroPorValidacao(validacao) {
