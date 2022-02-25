@@ -1,3 +1,22 @@
+const validationFactory = (tipoDeValidacao) => {
+  switch (tipoDeValidacao) {
+    case "min":
+      return min;
+      break;
+    case "max":
+      return max;
+      break;
+    case "email":
+      return email;
+      break;
+
+    default:
+      break;
+  }
+};
+
+
+
 const form = document.querySelector("#form");
 form.addEventListener("submit", (event) => {
   console.log("enviou");
