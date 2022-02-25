@@ -1,18 +1,22 @@
 const validationFactory = (tipoDeValidacao) => {
+  let funcao;
   switch (tipoDeValidacao) {
     case "min":
-      return min;
+      funcao = min;
       break;
     case "max":
-      return max;
+      funcao = max;
       break;
     case "email":
-      return email;
+      funcao = email;
       break;
 
     default:
+      console.log(`Validação do tipo ${tipoDeValidacao} não existe.`);
+      funcao = null;
       break;
   }
+  return funcao;
 };
 
 
