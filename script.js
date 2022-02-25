@@ -10,7 +10,6 @@ const validationFactory = (tipoDeValidacao) => {
     case "email":
       funcao = email;
       break;
-
     default:
       console.log(`Validação do tipo ${tipoDeValidacao} não existe.`);
       funcao = null;
@@ -20,21 +19,29 @@ const validationFactory = (tipoDeValidacao) => {
 };
 
 
+function start(idDoFormulario) {
+  const form = document.querySelector(idDoFormulario);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const regras = getRegras();
+    if (regras) {
+      const ids = getIdsAValidar(regras);
+      validar(ids, regras);
+      // console.log("enviou");
+    }
+  });
+}
 
-const form = document.querySelector("#form");
-form.addEventListener("submit", (event) => {
-  console.log("enviou");
-  event.preventDefault();
-});
-
-const regras = itens.regras;
-var ids = getIdsAValidar(regras);
-
-for (id of ids) {
-  let validacoes = getValidacoesPorId(id);
-  for (const validacao of validacoes) {
-    console.log(`${id} ${validacao} ${regras[id][validacao]}`);
-  }
+function validar(ids, regras) {
+  for (id of ids) {
+    let validacoes = getValidacoesPorId(id);
+    for (const validacao of validacoes) {
+      const parametro = regras[id][validacao];
+      const metodo = validationFactory(validacao);
+      if (metodo) {
+        // console.log(`${id} ${validacao} ${parametro}`);
+        console.log(metodo(id, parametro));
+      }
     }
   }
 }
