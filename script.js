@@ -17,11 +17,8 @@ const itens = {
   },
 };
 
-// const regras = Object.keys(itens);
 const regras = itens.regras;
-// console.log(regras);
 var ids = getIdsAValidar(regras);
-// console.log(ids);
 
 for (id of ids) {
   let validacoes = getValidacoesPorId(id);
@@ -42,13 +39,13 @@ function getParametroPorValidacao(validacao) {
   return validacao;
 }
 
-
 const validationFactory = (tipoDeValidacao) => {
   switch (tipoDeValidacao) {
     case "min":
-        return min;
+      return min;
       break;
     case "max":
+      return max;
       break;
 
     default:
@@ -64,6 +61,14 @@ function min(id, limite) {
   return true;
 }
 
-var a = validationFactory('min');
-console.log(a("nome",3));;
-console.log(a("idade",3));;
+function max(id, limite) {
+  const input = document.querySelector(`#${id}`);
+  if (Number(input.value) > limite) {
+    return false;
+  }
+  return true;
+}
+
+// var a = validationFactory("max");
+// console.log(a("nome", 3));
+// console.log(a("idade", 3));
