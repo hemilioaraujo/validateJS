@@ -69,6 +69,14 @@ function max(id, limite) {
   return true;
 }
 
+function email(id) {
+  const input = document.querySelector(`#${id}`);
+  const padrao = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
+  if (padrao.test(input.value)) {
+    return true;
+  }
+  return false;
+}
 // var a = validationFactory("max");
 // console.log(a("nome", 3));
 // console.log(a("idade", 3));
