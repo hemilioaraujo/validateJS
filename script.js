@@ -55,23 +55,23 @@ function getParametroPorValidacao(validacao) {
   return validacao;
 }
 
-function min(id, limite) {
+function min(id, parametro) {
   const input = document.querySelector(`#${id}`);
-  if (Number(input.value) < limite) {
+  if (Number(input.value) < parametro) {
     return false;
   }
   return true;
 }
 
-function max(id, limite) {
+function max(id, parametro) {
   const input = document.querySelector(`#${id}`);
-  if (Number(input.value) > limite) {
+  if (Number(input.value) > parametro) {
     return false;
   }
   return true;
 }
 
-function email(id) {
+function email(id, parametro) {
   const input = document.querySelector(`#${id}`);
   const padrao = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
   if (padrao.test(input.value)) {
