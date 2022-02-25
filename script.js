@@ -23,19 +23,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-const itens = {
-  regras: {
-    nome: {
-      min: 2,
-      max: 6,
-    },
-    idade: {
-      number: true,
-      email: true,
-    },
-  },
-};
-
 const regras = itens.regras;
 var ids = getIdsAValidar(regras);
 
@@ -57,20 +44,6 @@ function getValidacoesPorId(id) {
 function getParametroPorValidacao(validacao) {
   return validacao;
 }
-
-const validationFactory = (tipoDeValidacao) => {
-  switch (tipoDeValidacao) {
-    case "min":
-      return min;
-      break;
-    case "max":
-      return max;
-      break;
-
-    default:
-      break;
-  }
-};
 
 function min(id, limite) {
   const input = document.querySelector(`#${id}`);
